@@ -2,40 +2,22 @@
 
 
 [[projects]]
-  name = "github.com/Luzifer/rconfig"
+  name = "github.com/inconshreveable/mousetrap"
   packages = ["."]
-  revision = "7aef1d393c1e2d0758901853b59981c7adc67c7e"
-  version = "v1.2.0"
+  revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
+  version = "v1.0"
 
 [[projects]]
-  name = "github.com/sirupsen/logrus"
+  name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "d682213848ed68c0a260ca37d6dd5ace8423f5ba"
-  version = "v1.0.4"
+  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
+  version = "v0.0.1"
 
 [[projects]]
   name = "github.com/spf13/pflag"
   packages = ["."]
   revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
   version = "v1.0.0"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/crypto"
-  packages = ["ssh/terminal"]
-  revision = "b3c9a1d25cfbbbab0ff4780b71c4f54e6e92a0de"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/sys"
-  packages = ["unix","windows"]
-  revision = "810d7000345868fc619eb81f46307107118f4ae1"
-
-[[projects]]
-  branch = "v2"
-  name = "gopkg.in/validator.v2"
-  packages = ["."]
-  revision = "460c83432a98c35224a6fe352acf8b23e067ad06"
 
 [[projects]]
   branch = "v2"
@@ -46,6 +28,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "e1a3b44e12695a492ce0fa1d5804ba1a4a69eac786d0518f1b7c360c08dfc52d"
+  inputs-digest = "7ff1f45772d06d809a7ce689131011edc8fbd443f3b3d5b819110f42ad9d5283"
   solver-name = "gps-cdcl"
   solver-version = 1
