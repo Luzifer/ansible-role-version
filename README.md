@@ -1,3 +1,8 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/Luzifer/ansible-role-version)](https://goreportcard.com/report/github.com/Luzifer/ansible-role-version)
+![](https://badges.fyi/github/license/Luzifer/ansible-role-version)
+![](https://badges.fyi/github/downloads/Luzifer/ansible-role-version)
+![](https://badges.fyi/github/latest-release/Luzifer/ansible-role-version)
+
 # Luzifer / ansible-role-version
 
 Very simple tool to update a `requirements.yml` file for [Ansible Galaxy](https://galaxy.ansible.com/) with specific versions of roles.
