@@ -22,7 +22,7 @@ Lets say you do have a repository containing this `requirements.yml`:
 Now your CI system should update the version of `docker-compose` to `v1.0.1` and you don't want to fiddle with bash magic:
 
 ```bash
-$ ansible-role-version docker-compose v1.0.1
+$ ansible-role-version set docker-compose v1.0.1
 ```
 
 And you're done!
