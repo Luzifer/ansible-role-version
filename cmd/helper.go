@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"io/ioutil"
+	"os"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -14,17 +15,26 @@ type ansibleRoleDefinition struct {
 	Version string `yaml:"version"`
 }
 
-func patchRoleFile(rolesFile string, updates map[string]string) error {
-	var (
-		inFileContent []byte
-		err           error
-	)
-	if inFileContent, err = ioutil.ReadFile(rolesFile); err != nil {
-		return fmt.Errorf("Roles file not found: %s", err)
+func getRoleDefinitions(rolesFile string) ([]ansibleRoleDefinition, error) {
+	rf, err := os.Open(rolesFile)
+	if err != nil {
+		return nil, err
 	}
+	defer rf.Close()
+
+	def := []ansibleRoleDefinition{}
+	return def, yaml.NewDecoder(rf).Decode(&def)
+}
+
+func patchRoleFile(rolesFile string, updates map[string]string) error {
+	inFile, err := os.Open(rolesFile)
+	if err != nil {
+		return fmt.Errorf("Unable to open roles files: %s", err)
+	}
+	defer inFile.Close()
 
 	in := []ansibleRoleDefinition{}
-	if err = yaml.Unmarshal(inFileContent, &in); err != nil {
+	if err = yaml.NewDecoder(inFile).Decode(&in); err != nil {
 		return fmt.Errorf("Unable to parse roles file: %s", err)
 	}
 
@@ -36,13 +46,13 @@ func patchRoleFile(rolesFile string, updates map[string]string) error {
 		}
 	}
 
-	if inFileContent, err = yaml.Marshal(in); err != nil {
+	buf := new(bytes.Buffer)
+	buf.Write([]byte("---\n\n"))
+
+	if err := yaml.NewEncoder(buf).Encode(in); err != nil {
 		return fmt.Errorf("Unable to marshal roles file: %s", err)
 	}
 
-	buf := new(bytes.Buffer)
-	buf.Write([]byte("---\n\n"))
-	buf.Write(inFileContent)
 	buf.Write([]byte("\n...\n"))
 
 	if err = ioutil.WriteFile(rolesFile, buf.Bytes(), 0644); err != nil {
