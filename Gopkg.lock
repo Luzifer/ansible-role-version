@@ -51,6 +51,12 @@
   version = "v1.0.0"
 
 [[projects]]
+  name = "github.com/sirupsen/logrus"
+  packages = ["."]
+  revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
+  version = "v1.0.5"
+
+[[projects]]
   name = "github.com/spf13/cobra"
   packages = ["."]
   revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
@@ -97,7 +103,8 @@
     "poly1305",
     "ssh",
     "ssh/agent",
-    "ssh/knownhosts"
+    "ssh/knownhosts",
+    "ssh/terminal"
   ]
   revision = "c3a3ad6d03f7a915c0f7e194b7152974bb73d287"
 
@@ -110,7 +117,10 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
-  packages = ["windows"]
+  packages = [
+    "unix",
+    "windows"
+  ]
   revision = "d8e400bc7db4870d786864138af681469693d18c"
 
 [[projects]]
@@ -201,6 +211,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "232dd462ee87625b6d06a386c00dff327b7e8f1033800dd1383ea2d9e2c94dd4"
+  inputs-digest = "23ffdf9af8b43b92c1b93893eba15644743c83ee599c59f844da6898fa234abd"
   solver-name = "gps-cdcl"
   solver-version = 1
