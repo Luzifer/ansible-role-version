@@ -1,3 +1,7 @@
+# 0.3.1 / 2018-03-19
+
+  * Fix: Add missing dependencies
+
 # 0.3.0 / 2018-03-19
 
   * Add update command to update from git tags
