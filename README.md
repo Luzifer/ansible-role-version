@@ -33,3 +33,16 @@ $ ansible-role-version set docker-compose v1.0.1
 And you're done!
 
 Sure, this example is a bit constructed: In reality this tool was written to update a bunch of different repositories each having a way bigger list of roles to include and the tool is used in a script to update all of them and create pull-requests out of the change.
+
+To do so your requirements file needs to meet some requirements:
+
+- All roles do have their `src` set to a Git URL
+- Version is set to tags (if not it will be afterwards!)
+- The roles do have proper versioning with tags
+- The repos are public available (authentication while fetching the git repo is not yet supported)
+
+Then just execute:
+
+```console
+$ ansible-role-version update
+```
